@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 
 import { GamesRepository } from './games.repository';
 import { GameDto } from './types/game-dto.class';
@@ -31,7 +31,7 @@ export class GamesController {
   }
 
   @Put('/:id')
-  public async updateGame(@Param('id') id: number, @Body(new ValidationPipe()) game: GameDto) {
+  public async updateGame(@Param('id') id: number, @Body() game: GameDto) {
     return this.gamesRepository.update(id, game);
   }
 
