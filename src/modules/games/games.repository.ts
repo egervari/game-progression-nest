@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
-import { database } from '../database';
+import { database } from '../../database';
 
+import { GameDto } from './types/game-dto.class';
 import { Game } from './types/game.interface';
 
 @Injectable()
@@ -39,11 +40,11 @@ export class GamesRepository {
       .first();
   }
 
-  public async create(game: any) {
+  public async create(game: GameDto) {
     return database('games').insert(game);
   }
 
-  public async update(gameId: number, game: any) {
+  public async update(gameId: number, game: GameDto) {
     return database('games')
       .update(game)
       .where('id', gameId);

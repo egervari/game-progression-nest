@@ -28,6 +28,8 @@
     "@nestjs/testing": "^5.1.0",
     "@nestjs/websockets": "^5.1.0",
     "@types/node": "^10.7.1",
+    "class-transformer": "^0.1.9",
+    "class-validator": "^0.9.1",
     "knex": "^0.15.2",
     "pg": "^7.5.0",
     "reflect-metadata": "^0.1.12",

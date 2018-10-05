@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { database } from '../database';
+import { database } from '../../database';
 
 import { Language } from './types/language.interface';
 

@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, ValidationPipe } from '@nestjs/common';
 
 import { GamesRepository } from './games.repository';
+import { GameDto } from './types/game-dto.class';
 import { Game } from './types/game.interface';
 
 @Controller('/games')
@@ -25,12 +26,12 @@ export class GamesController {
   }
 
   @Post()
-  public async createGame(@Body() game: Game) {
+  public async createGame(@Body() game: GameDto) {
     return this.gamesRepository.create(game);
   }
 
   @Put('/:id')
-  public async updateGame(@Param('id') id: number, @Body() game: Game) {
+  public async updateGame(@Param('id') id: number, @Body(new ValidationPipe()) game: GameDto) {
     return this.gamesRepository.update(id, game);
   }
 

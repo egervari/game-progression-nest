@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Put } from '@nestjs/common';
 
 import { ProfileRepository } from './profile.repository';
+import { ProfileDto } from './types/profile-dto.class';
 import { Profile } from './types/profile.interface';
 
 @Controller('/profile')
@@ -13,7 +14,7 @@ export class ProfileController {
   }
 
   @Put()
-  public async updateProfile(@Body() profile: Profile): Promise<Profile> {
+  public async updateProfile(@Body() profile: ProfileDto): Promise<ProfileDto> {
     return this.profileRepository.update(profile)
       .then(() => this.getProfile());
   }
