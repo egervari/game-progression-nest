@@ -7,7 +7,7 @@ module.exports = {
   connection: {
     database: 'game_progression_staging',
     user: 'postgres',
-    password: 'games',
+    password: 'rangle',
   },
   pool: {
     min: 2,
