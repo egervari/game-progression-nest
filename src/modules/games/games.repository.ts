@@ -27,7 +27,7 @@ export class GamesRepository {
         }
 
         if (name) {
-          queryBuilder.whereRaw(`lower(name) like '%${name}%'`);
+          queryBuilder.whereRaw(`lower(name) like ?`, [`%${name}%`]);
         }
       })
       .orderBy(sort, order);
